@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Task Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>All Tasks</h1>
@@ -14,10 +15,12 @@
             </li>
         {% endfor %}
     </ul>
-    <h2>Add New Task</h2>
+<!--    <h2>Add New Task</h2>-->
     <a href="{{ url_for('add_task') }}">Add Task</a><br>
 
-    <h2>Add New Category</h2>
+<!--    <h2>Add New Category</h2>-->
     <a href="{{ url_for('add_category') }}">Add Category</a>
+<!--    <h2>Add New Category</h2>-->
+    <a href="{{ url_for('category_list') }}">Category list</a>
 </body>
 </html>

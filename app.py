@@ -57,13 +57,22 @@ def add_task():
 
 @app.route('/add_category', methods=['GET', 'POST'])
 def add_category():
+    categorys = Category.query.all()
     if request.method == 'POST':
         name = request.form['name']
         new_category = Category(name=name)
         db.session.add(new_category)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('add_category.html')
+    return render_template('add_category.html', categorys=categorys)
+
+@app.route('/category_list', methods=['GET', 'POST'])
+def category_list():
+    categorys = Category.query.all()
+    return render_template('category_list.html', categorys=categorys)
+    # return redirect(url_for('index'))
+    # return render_template('category_list.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run()
