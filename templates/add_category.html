@@ -16,6 +16,8 @@
         {% for category in categorys %}
             <li>
                 <p> {{ category.name }} </p>
+                <p> {{ category.id }} </p>
+                <a href="{{ url_for('remove_category', category_id=category.id) }}"> </a>
             </li>
         {% endfor %}
     </ul>

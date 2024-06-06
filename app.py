@@ -73,6 +73,14 @@ def category_list():
     # return redirect(url_for('index'))
     # return render_template('category_list.html')
 
+@app.route('/category_list/<int:category_id>', methods=['POST'])
+def remove_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    db.session.delete(category)
+    db.session.commit()
+    # flash('Категория успешно удалена!', 'success')
+    return redirect(url_for('category_list'))
+
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run()
